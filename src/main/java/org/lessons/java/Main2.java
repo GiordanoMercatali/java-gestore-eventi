@@ -18,6 +18,9 @@ public class Main2 {
         EventsSchedule eventsSchedule = createSchedule(scanner, exit);
 
         System.out.println(eventsSchedule.toString());
+
+        List<Event> eventsOnDate = eventsSchedule.getEventsByDate(scanner);
+        System.out.println("These events happen in the chosen date: " + eventsOnDate);
         
     }
 
@@ -28,6 +31,7 @@ public class Main2 {
         String title = scanner.nextLine();
         EventsSchedule eventsSchedule = new EventsSchedule(title);
         // List<Event> events = new ArrayList<>();
+        
     
         while (!exit) {
             System.out.println("0-Exit");

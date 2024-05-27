@@ -25,4 +25,18 @@ class EventsSchedule {
     public String toString() {
         return "Schedule title: " + title + ", Scheduled events: " + events + "\n";
     }
+
+    
+    public List<Event> getEventsByDate(Scanner scanner){
+        System.out.println("Insert event date (yyyy-MM-dd): ");
+        String dateString = scanner.nextLine();
+        LocalDate date = LocalDate.parse(dateString);
+        
+        List<Event> eventsThisDate = new ArrayList<>();
+            for(Event event : events){
+                if(date.equals(event.getDate())){
+                    eventsThisDate.add(event);
+                }
+            } return eventsThisDate;
+    }
 }
