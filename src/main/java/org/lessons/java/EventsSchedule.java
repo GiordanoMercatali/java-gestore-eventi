@@ -62,4 +62,10 @@ class EventsSchedule {
                 break;
         }
     }
+
+    // @Override
+    // public int compareTo(Object o){
+    //     for(Event event : events){
+    //         return date.compareTo(event.date)
+    // }
 }
