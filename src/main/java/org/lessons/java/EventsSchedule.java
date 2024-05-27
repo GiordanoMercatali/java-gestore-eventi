@@ -2,6 +2,7 @@ package org.lessons.java;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,5 +47,19 @@ class EventsSchedule {
 
     public int getEventsNumber(){
         return events.size();
+    }
+
+    public void emptyList(Scanner scanner){
+
+        System.out.println("0-Empty list");    
+        String choice = scanner.nextLine();
+
+        switch (choice) {
+            case "0":
+                events = Collections.<Event>emptyList();
+                break;
+            default:
+                break;
+        }
     }
 }

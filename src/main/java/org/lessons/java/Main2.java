@@ -17,8 +17,9 @@ public class Main2 {
 
         EventsSchedule eventsSchedule = createSchedule(scanner, exit);
 
-        System.out.println(eventsSchedule.toString());
+        eventsSchedule.emptyList(scanner);
 
+        System.out.println(eventsSchedule.toString());
 
         System.out.print("During this year's " + eventsSchedule.getTitle() + " there will be "
             + eventsSchedule.getEventsNumber());
