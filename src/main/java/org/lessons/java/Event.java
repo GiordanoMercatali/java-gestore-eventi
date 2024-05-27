@@ -1,6 +1,7 @@
 package org.lessons.java;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Event {
     private String title;
@@ -56,6 +57,21 @@ public class Event {
     
     /* Booked seats */
     public int getBookedSeats(){
+        return bookedSeats;
+    }
+
+    /* BOOK METHOD */
+
+    public int bookSeats(Scanner scanner, int bookedSeats) throws InvalidSeatsException{
+        int seatsToBook = Integer.parseInt(scanner.nextLine());
+        bookedSeats += seatsToBook;
+        return bookedSeats;
+    }
+
+    /* CANCEL METHOD */
+    public int cancelReservation(Scanner scanner, int bookedSeats) throws InvalidSeatsException{
+        int reservationToCancel = Integer.parseInt(scanner.nextLine());
+        bookedSeats -= reservationToCancel;
         return bookedSeats;
     }
     
