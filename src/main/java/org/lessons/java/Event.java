@@ -62,18 +62,29 @@ public class Event {
 
     /* BOOK METHOD */
 
-    public  int bookSeats(Scanner scanner) throws InvalidSeatsException{
+    public int bookSeats(Scanner scanner) throws InvalidSeatsException{
         System.out.println("How many seats do you want to book?");
         int seatsToBook = Integer.parseInt(scanner.nextLine());
-        bookedSeats += seatsToBook;
+        if(seatsToBook > totalSeats){
+            System.out.println("You're trying to book more seats than there are!");
+        } else {
+            bookedSeats += seatsToBook;
+            totalSeats -= seatsToBook;
+        }
+        
         return bookedSeats;
     }
 
     /* CANCEL METHOD */
-    public  int cancelReservation(Scanner scanner) throws InvalidSeatsException{
+    public int cancelReservation(Scanner scanner) throws InvalidSeatsException{
         System.out.println("How many reservations do you want to cancel?");
-        int reservationToCancel = Integer.parseInt(scanner.nextLine());
-        bookedSeats -= reservationToCancel;
+        int reservationsToCancel = Integer.parseInt(scanner.nextLine());
+        if(reservationsToCancel > bookedSeats){
+            System.out.println("You're trying to cancel more reservations than there are!");
+        } else {
+            bookedSeats -= reservationsToCancel;
+            totalSeats += reservationsToCancel;
+        }
         return bookedSeats;
     }
 
