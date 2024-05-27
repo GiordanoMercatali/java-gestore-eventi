@@ -12,7 +12,8 @@ public class Event {
         this.title = title;
         this.date = validateDate(date);
         this.totalSeats = validateSeats(totalSeats);
-        this.bookedSeats = bookedSeats;
+        // this.bookedSeats = bookedSeats;
+        this.bookedSeats = 0;
     }
 
     /* TITLE METHOD */
@@ -29,7 +30,7 @@ public class Event {
         this.date = validateDate(date);
     }
 
-    public LocalDate validateDate(LocalDate date) throws InvalidDateException{
+    private LocalDate validateDate(LocalDate date) throws InvalidDateException{
         if (date.isBefore(LocalDate.now()))
             throw new InvalidDateException("This date has passed! Try another");
         else
@@ -46,7 +47,7 @@ public class Event {
         this.totalSeats = validateSeats(totalSeats);
     }
 
-    public int validateSeats(int totalSeats) throws InvalidSeatsException{
+    private int validateSeats(int totalSeats) throws InvalidSeatsException{
         if (totalSeats <= 0)
             throw new InvalidSeatsException("Total seats can't be 0 or less!");
         else
