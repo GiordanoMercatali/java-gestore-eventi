@@ -44,10 +44,6 @@ public class Event {
         return totalSeats;
     }
 
-    // public void setSeats(int totalSeats) throws InvalidSeatsException{
-    //     this.totalSeats = validateSeats(totalSeats);
-    // }
-
     private int validateSeats(int totalSeats) throws InvalidSeatsException{
         if (totalSeats <= 0)
             throw new InvalidSeatsException("Total seats can't be " + totalSeats + " or less!");
