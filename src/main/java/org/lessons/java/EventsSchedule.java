@@ -16,6 +16,10 @@ class EventsSchedule {
         this.title = title;
         this.events = new ArrayList<>();
     }
+
+    public String getTitle(){
+        return title;
+    }
     
     public void addEvent(Event event){
         events.add(event);
@@ -38,5 +42,9 @@ class EventsSchedule {
                     eventsThisDate.add(event);
                 }
             } return eventsThisDate;
+    }
+
+    public int getEventsNumber(){
+        return events.size();
     }
 }

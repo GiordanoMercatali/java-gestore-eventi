@@ -19,6 +19,16 @@ public class Main2 {
 
         System.out.println(eventsSchedule.toString());
 
+
+        System.out.print("During this year's " + eventsSchedule.getTitle() + " there will be "
+            + eventsSchedule.getEventsNumber());
+            
+        if(eventsSchedule.getEventsNumber() == 1){
+            System.out.println(" event!");
+        } else {
+            System.out.println(" events!");
+        }
+
         List<Event> eventsOnDate = eventsSchedule.getEventsByDate(scanner);
         System.out.println("These events happen in the chosen date: " + eventsOnDate);
         
