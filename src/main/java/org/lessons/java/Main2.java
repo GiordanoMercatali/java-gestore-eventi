@@ -22,11 +22,12 @@ public class Main2 {
     }
 
     private static EventsSchedule createSchedule(Scanner scanner, boolean exit) throws InvalidDateException, InvalidSeatsException {
-        EventsSchedule eventsSchedule = null;
+        // EventsSchedule eventsSchedule = null;
     
         System.out.println("Schedule title");
         String title = scanner.nextLine();
-        List<Event> events = new ArrayList<>();
+        EventsSchedule eventsSchedule = new EventsSchedule(title);
+        // List<Event> events = new ArrayList<>();
     
         while (!exit) {
             System.out.println("0-Exit");
@@ -39,18 +40,13 @@ public class Main2 {
                     break;
                 case "1":
                     Event event = createEvent(scanner, 0);
-                    events.add(event);
+                    eventsSchedule.addEvent(event);
+                    // events.add(event);
                     break;
                 default:
                     System.out.println("Error");
                     break;
             }
-        }
-    
-        try {
-            eventsSchedule = new EventsSchedule(title, events);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Something went wrong with the creation of this schedule!");
         }
         return eventsSchedule;
     }

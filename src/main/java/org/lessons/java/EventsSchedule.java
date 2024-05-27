@@ -9,12 +9,16 @@ class EventsSchedule {
     private String title;
     private List<Event> events;
 
-    public EventsSchedule(String title, List<Event> events) {
-        if (title == null || title.isEmpty() || events == null) {
+    public EventsSchedule(String title) {
+        if (title == null || title.isEmpty()) {
             throw new IllegalArgumentException("Invalid title or events list");
         }
         this.title = title;
-        this.events = events;
+        this.events = new ArrayList<>();
+    }
+    
+    public void addEvent(Event event){
+        events.add(event);
     }
 
     @Override
