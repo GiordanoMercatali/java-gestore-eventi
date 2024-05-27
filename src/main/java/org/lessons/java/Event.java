@@ -33,7 +33,7 @@ public class Event {
 
     private LocalDate validateDate(LocalDate date) throws InvalidDateException{
         if (date.isBefore(LocalDate.now()))
-            throw new InvalidDateException("This date has passed! Try another");
+            throw new InvalidDateException(date + " has already passed! Try another date");
         else
             return date;
     }
@@ -50,7 +50,7 @@ public class Event {
 
     private int validateSeats(int totalSeats) throws InvalidSeatsException{
         if (totalSeats <= 0)
-            throw new InvalidSeatsException("Total seats can't be 0 or less!");
+            throw new InvalidSeatsException("Total seats can't be " + totalSeats + " or less!");
         else
             return totalSeats;
     }
