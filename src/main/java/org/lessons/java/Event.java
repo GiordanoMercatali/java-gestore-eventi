@@ -13,8 +13,8 @@ public class Event {
         this.title = title;
         this.date = validateDate(date);
         this.totalSeats = validateSeats(totalSeats);
-        // this.bookedSeats = bookedSeats;
-        this.bookedSeats = 0;
+        this.bookedSeats = bookedSeats;
+        // this.bookedSeats = 0;
     }
 
     /* TITLE METHOD */
@@ -73,6 +73,12 @@ public class Event {
         int reservationToCancel = Integer.parseInt(scanner.nextLine());
         bookedSeats -= reservationToCancel;
         return bookedSeats;
+    }
+
+    /* OVERRIDE TO STRING */
+    @Override
+    public String toString() {
+        return  "Title: " + getTitle() + ", Date: " + getDate() + ", Total seats: " + getSeats() + ", Seats already reserved: " + getBookedSeats() + "\n";
     }
     
 }
