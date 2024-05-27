@@ -29,7 +29,7 @@ public class Main {
                 event.cancelReservation(scanner);
                     break;
                 default:
-                    System.out.println("Error");
+                    System.out.println("Choose a valid option!");
                     break;
             }
         } System.out.println(event.toString());
@@ -50,7 +50,7 @@ public class Main {
             try{
                 event = new Event(title, date, totalSeats, bookedSeats);
             } catch(IllegalArgumentException e){
-                System.out.println("Error");
+                System.out.println("Something went wrong with the creation of this event!");
             }
         } return event;
     }
