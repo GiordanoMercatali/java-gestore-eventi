@@ -5,14 +5,37 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Main {
+    
     public static void main(String[] args) throws InvalidDateException, InvalidSeatsException {
         Scanner scanner = new Scanner(System.in);
+        final int bookedSeats = 0;
+        Event event = createEvent(scanner, bookedSeats);
+        boolean exit = false;
 
-        Event event = createEvent(scanner);
-        System.out.println(event.toString());
+        while(!exit){
+            System.out.println("0-Exit");
+            System.out.println("1-Book seats");
+            System.out.println("2-Cancel a reservation");            
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "0":
+                    exit = true;
+                    break;
+                case "1":
+                event.bookSeats(scanner);
+                    break;
+                case "2":
+                event.cancelReservation(scanner);
+                    break;
+                default:
+                    System.out.println("Error");
+                    break;
+            }
+        } System.out.println(event.toString());
     }
 
-    private static Event createEvent(Scanner scanner) throws InvalidDateException, InvalidSeatsException{
+    private static Event createEvent(Scanner scanner, int bookedSeats) throws InvalidDateException, InvalidSeatsException{
         Event event = null;
         while(event == null){
             System.out.println("Insert event title: ");
@@ -25,7 +48,7 @@ public class Main {
             int totalSeats = Integer.parseInt(scanner.nextLine());
 
             try{
-                event = new Event(title, date, totalSeats, 0);
+                event = new Event(title, date, totalSeats, bookedSeats);
             } catch(IllegalArgumentException e){
                 System.out.println("Error");
             }
